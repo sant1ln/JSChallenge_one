@@ -22,15 +22,18 @@
           ¿Cuantas peliculas quieres ver?
         </label>
         <input id="amuntMovies"  class="input_user" type="number" name="movies">
+        <small id="error_amunt" class="error_input"></small><br>
+        
         <label for="ticketCost">
           ¿Cuanto cuesta un ticket de cine?
         </label>
         <input id="ticketCost" class="input_user" type="number" name="ticket">
-
+        <small id="error_ticket" class="error_input"></small>
+        
         <div class="app_calculator-straming">
           Seleciona tus servicios de streaming donde podrías ver tus peliculas
           <label>
-            <input type="checkbox"  class="userCheck" id="cbox1" value="8" checked> 
+            <input type="checkbox"  class="userCheck" id="cbox1" value="8"> 
             Netflix
           </label>
           <label>
@@ -38,7 +41,7 @@
             Amazon prime
           </label>  
           <label>
-            <input type="checkbox" class="userCheck" id="cbox3" value="12" checked> 
+            <input type="checkbox" class="userCheck" id="cbox3" value="12"> 
             Disney plus
           </label>  
           <label>

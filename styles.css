@@ -45,7 +45,6 @@ body {
 .input_user{
   width: 50%;
   height: 30px;
-  margin: 10px;
   border-radius: 10px;
   outline: none;
   font-size: 20px;
@@ -74,4 +73,32 @@ body {
 
 #button_action:hover{
   background-color: #081C15;
+}
+
+.error_input{
+  font-size: 1rem;
+  color: red;
+  margin: 10px;
+}
+
+@media screen and (max-width: 610px){
+ 
+  .app{
+    flex-direction: column;
+  }
+
+  .app_question{
+    width: 100%;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+  }
+
+  .app_calculator{
+    width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
 }

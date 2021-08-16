@@ -13,6 +13,7 @@ const printResults = (responseContainer) =>{
 
   appContainer.style.display = 'none';
   resultContainer.innerHTML = responseContainer;
+  resultContainer.style.display = 'flex';
   const buttonClose = document.querySelector('#button_back')
   buttonClose.addEventListener('click',()=>{
     resultContainer.style.display = 'none';
@@ -23,26 +24,35 @@ const printResults = (responseContainer) =>{
 
 
 const computeValues = (values) =>{
+  
+  const error_amunt = document.querySelector('#error_amunt');
+  const error_ticket = document.querySelector('#error_ticket');
     
   let responseContainer = ''
 
-    if(!values.length){
-     return console.log('No hay plaformas para tus peliculas, entonces seguramente sea un estreno, ve a cine.')
-    }
-
-    if(!amuntMovies.value){
-      return console.log('¿? Pon almenos una cantidad de peliculas')
-    }
+  
+  if(!amuntMovies.value){
+    return error_amunt.innerHTML = 'Pon una cantidad de peliculas'
+  }
+  
+  if(!cinemaTicket.value){
+    return error_ticket.innerHTML = 'Pon un costo de tickets'
+  }
+  
+  if(!values.length){
+    responseContainer = responseContainer = containerResult('Cienma')
+    return printResults(responseContainer)
+  }
     
-    const totalInCinema = parseInt(cinemaTicket.value)* parseInt(amuntMovies.value);
-    const totalInStreaming = values.reduce((acumulator, item)=> acumulator += item)
+  const totalInCinema = parseInt(cinemaTicket.value)* parseInt(amuntMovies.value);
+  const totalInStreaming = values.reduce((acumulator, item)=> acumulator += item)
 
-   
-    if(totalInCinema>totalInStreaming){
-      responseContainer = containerResult('Streaming')
-    }else{
-      responseContainer = containerResult('Cienma')
-    }
+  
+  if(totalInCinema>totalInStreaming){
+    responseContainer = containerResult('Streaming')
+  }else{
+    responseContainer = containerResult('Cienma')
+  }
     
     printResults(responseContainer)
 }
@@ -51,6 +61,9 @@ const computeValues = (values) =>{
 //Get the checkbox 'checked' values.
 buttonBox.addEventListener('click',()=>{
           const values = []
+          error_amunt.innerHTML = '';
+          error_ticket.innerHTML = '';
+
           checkBoxes.forEach((checkbox)=>{
             if(checkbox.checked) values.push(parseInt(checkbox.value))
           })

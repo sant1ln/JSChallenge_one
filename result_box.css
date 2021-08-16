@@ -55,3 +55,24 @@ p{
 #button_back:hover{
   background-color: #081C15;
 }
+
+
+@media screen and (max-width: 610px){
+ 
+  .result_box{
+    flex-direction: column;
+  }
+
+  .result_box_image{
+    width: 100%;
+  }
+
+  .result_box_image img{
+    display: none;
+  }
+
+  .result_box_answer{
+    width: 100%;
+  }
+ 
+}
